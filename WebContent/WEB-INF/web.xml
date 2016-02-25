@@ -91,7 +91,7 @@
 	000_launchpad.html
 	 -->
 	<welcome-file-list>
-		<welcome-file>006_scn_index.html</welcome-file>
+		<welcome-file>082_compareReact.html</welcome-file>
 	</welcome-file-list>
 
 
