@@ -1,9 +1,5 @@
-
-
 sap.ui.jsview("compareReact.sample", {
-	
-	_NUMBER: 10,
-	
+	_NUMBER: 100,
 	_textAreas: [],
 	
 	getControllerName : function() {
@@ -15,24 +11,22 @@ sap.ui.jsview("compareReact.sample", {
 		var that = this;
 		var oInput1 = new sap.ui.commons.TextField('input1');
 		oInput1.setValue("Hello!");
-		oInput1.attachChange(function(){
+		oInput1.attachLiveChange(function(event){
 			// console.log('Text changed to :'+ oInput1.getValue());
 			for( var i = 0; i < that._NUMBER; i++){
-				that._textAreas[i].setValue(oInput1.getValue());
+					that._textAreas[i].setValue(event.getParameter("liveValue"));
 			}
 			}
 		);
-		
-		var oLayout = new sap.ui.layout.VerticalLayout("Layout1", {
+		this.oLayout = new sap.ui.layout.VerticalLayout("Layout1", {
         	 content:[oInput1]
-         });
+        });
 		
 		for( var i = 0; i < this._NUMBER; i++){
 			var oInput = new sap.ui.commons.TextArea('text' + i);
-			oLayout.addContent(oInput);
+			this.oLayout.addContent(oInput);
 			this._textAreas.push(oInput);
 		}
-
-		return oLayout;
+		return this.oLayout;
 	}
 });
