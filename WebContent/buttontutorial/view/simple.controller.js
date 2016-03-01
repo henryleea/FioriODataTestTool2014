@@ -1,5 +1,6 @@
 /*
  * Jerry 2015-11-01 8:34AM 
+ * http://scn.sap.com/community/fiori/blog/2015/10/28/how-i-do-self-study-on-a-given-fiori-control--part-9
  sap.ui.controller("buttontutorial.view.simple", { */
 
 
