@@ -1,0 +1,15 @@
+<core:View
+	controllerName="rtl.view.Master"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core" 
+	xmlns:ui="sap.ui.layout">
+	<Page
+		title="Jerry" >
+		<ui:form.SimpleForm id="opportunityID_form" layout="ResponsiveGridLayout">
+			<ui:content>
+			 <Label id="opportunityType_label1" text="Type"></Label>
+			<Text id="opportunityType_Text1" text="1"></Text>
+			</ui:content>
+</ui:form.SimpleForm>
+	</Page>
+</core:View>
