@@ -55,7 +55,7 @@ sap.ui.jsview("tableautofix.JsonDemo", {
 	
 	createSampleData: function() {
 		
-		var NUM = 100;
+		var NUM = 1;
 		var sample = {
 				OpportunityNotesSet: {
 				}
@@ -85,6 +85,7 @@ sap.ui.jsview("tableautofix.JsonDemo", {
          var oTableModel = this.createTableJsonModel();
          oTable.setModel(oTableModel);
          oTable.bindRows("/OpportunityNotesSet");
+         oTable.setMinAutoRowCount(1);
          var oLayout = new sap.ui.layout.VerticalLayout("Layout1", {
         	 content:[oTable]
          });
