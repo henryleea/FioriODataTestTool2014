@@ -5,30 +5,23 @@
 		<meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
 
 		<script src="resources/sap-ui-core.js"
-				id="sap-ui-bootstrap"
+				id="HelloWorld"
 				data-sap-ui-libs="sap.ui.commons,sap.ui.table,sap.ui.ux3"
 				data-sap-ui-theme="sap_bluecrystal">
 		</script>
-		<!-- 库不能随便加，加了会无法显示（奇怪） -->
-		<!-- add sap.ui.table,sap.ui.ux3 and/or other libraries to 'data-sap-ui-libs' if required -->
 
 		<script>
 				sap.ui.localResources("wenxin");
 				
 				var oHeader = new sap.ui.commons.ApplicationHeader("headet");//id 要唯一
 				oHeader.setLogoText("welcome to my home, you r my family");
-				//oHeader.logoSrc = "https://www.baidu.com/";
+
 			    oHeader.setDisplayWelcome(false);
 				oHeader.setDisplayLogoff(true);
-				//oHeader.setUserName("Vicky");
 				oHeader.placeAt("header");
 				
-				//var oMenu = new sap.ui.commons.MenuBar("menuBar");
 				var oMenuItem1 = new sap.ui.commons.MenuItem("item1",{text:"menu-item1"});
 				var oMenuItem2 = new sap.ui.commons.MenuItem("item2",{text:"menu-item2"});
-				//oMenu.items = {oMenuItem1,oMenuItem2};  //对象的数组属性怎么直接赋值
-				//oMenu.addItem(oMenuItem1);
-				//oMenu.addItem(oMenuItem2);
 				
 				var oMenu = new sap.ui.commons.MenuBar("menuBar",{
 					items:[oMenuItem1,oMenuItem2]
