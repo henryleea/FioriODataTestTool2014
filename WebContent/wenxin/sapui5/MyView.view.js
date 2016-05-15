@@ -8,9 +8,6 @@ sap.ui.jsview("wenxin.sapui5.MyView", {
 		var myButton = new sap.ui.commons.Button("btn",{
 			text: "press me~"
 		});
-		var myButton2 = new sap.ui.commons.Button("btn",{
-			text: "press me~"
-		});
 		myButton.attachPress(function(){
 			oController.onPress();
 		});
