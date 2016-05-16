@@ -1,3 +1,5 @@
+
+
 sap.ui.controller("wenxin.sapui5.MyView", {
 	onPress: function(oEvent){
 		alert(oEvent.getSource().getId() + "do it!");

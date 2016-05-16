@@ -1,3 +1,5 @@
+jQuery.sap.require("wenxin.util.tool");
+
 sap.ui.jsview("wenxin.sapui5.MyView", {
 
 	getControllerName : function() {
@@ -8,9 +10,12 @@ sap.ui.jsview("wenxin.sapui5.MyView", {
 		var myButton = new sap.ui.commons.Button("btn",{
 			text: "press me~"
 		});
-		myButton.attachPress(function(){
-			oController.onPress();
-		});
+		
+		var handler = function(oEvent){
+			oController.onPress(oEvent);
+		};
+		myButton.attachPress(wenxin.util.tool.methodHook(handler));
+		
 		return myButton;
 	}
 

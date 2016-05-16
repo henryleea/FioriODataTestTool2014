@@ -1,6 +1,10 @@
+jQuery.sap.require("util.tool");
+
+
 sap.ui.controller("sapui5.mvcJsonView", {
 	onPress: function(oEvent){
 		alert("button pressed!");
+		util.tool.display();
 	}
 
 
