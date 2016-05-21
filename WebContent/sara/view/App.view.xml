@@ -1,0 +1,33 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:layout="sap.ui.layout" >
+    <Panel headerText="{i18n>panelHeaderText}" class="sapUiResponsiveMargin" width="auto">
+        <content>
+            <Label text="{i18n>firstName}" class="sapUiSmallMargin"/>
+            <Input value="{/firstName}" valueLiveUpdate="true" width="200px" enabled="{/enabled}" />
+            <Label text="{i18n>lastName}" class="sapUiSmallMargin"/>
+            <Input value="{/lastName}" valueLiveUpdate="true" width="200px" enabled="{/enabled}" /> 
+            <CheckBox  selected="{/enabled}" text="{i18n>enabled}" />
+        </content>
+    </Panel>
+    
+    <Panel headerText="{i18n>addressDetails}" class="sapUiResponsiveMargin" width="auto">
+        <content>
+            <!--In this layout the content controls are rendered one below the other. -->
+            <layout:VerticalLayout>
+            <Label text="{i18n>address}:" class="sapUiSmallMargin" />
+                <Text class="sapUiSmallMargin" text="{/address/street}\n{/address/zip}{/address/city}\n{/address/country}" width="200px"/>
+                <!--    
+                <Image class="sapUiSmallMargin" width="500px" height="300px" src="{ parts: [ '/address/street', '/address/zip', '/address/city', '/address/country' ], formatter: '.formatMapUrl' }" /> 
+                -->
+            </layout:VerticalLayout>
+                  <layout:VerticalLayout>
+        <Label text="{i18n>salesToDate}" class="sapUiSmallMargin" />
+        <Input 
+          width="200px" 
+          enabled="{/enabled}" 
+          description="{/currencyCode}"
+          value="{ parts: [{path: '/salesToDate'}, {path: '/currencyCode'}], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false } }" />
+      </layout:VerticalLayout>
+      
+        </content>
+    </Panel>
+</mvc:View>

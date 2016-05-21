@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="utf-8">
+	<title>Data Binding Tutorial</title>
+	<script
+		id="sap-ui-bootstrap"
+		src="resources/sap-ui-core.js"
+		data-sap-ui-theme="sap_bluecrystal"
+		data-sap-ui-libs="sap.m"
+		data-sap-ui-compatVersion="edge"
+		
+		>
+	</script>
+	<script>
+	sap.ui.localResources("sara");
+     sap.ui.getCore().attachInit(function () {
+		
+		var oModel = new sap.ui.model.json.JSONModel({
+		    firstName: "Sara",
+		    lastName : "Zhang",
+		    enabled : true,
+            address   : {
+		          street : "Tianfu Ave No. 801",
+		          city : "Chengdu",
+		          zip : "610041",
+		          country : "China"
+	   },
+           "salesToDate" : 12345.6789,
+           "currencyCode" : "EUR"
+		});
+		//BindingMode one way means from model to view
+		    oModel.setDefaultBindingMode(sap.ui.model.BindingMode.OneWay)
+
+            sap.ui.getCore().setModel(oModel);
+		    
+			var oView = new sap.ui.core.mvc.XMLView({ viewName : "sara.view.App" });
+			
+			// Register the view with the message manager
+			sap.ui.getCore().getMessageManager().registerObject(oView, true);
+
+			oView.placeAt("content");
+      
+		});
+	</script>
+  <body class="sapUiBody" id="content">
+  </body>
+</html>
