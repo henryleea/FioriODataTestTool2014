@@ -6,7 +6,9 @@ sap.ui.controller("2014-12-30-fioriodatatest.JsonDemo", {
 	ODATA_BASEURL:"/sap/opu/odata/sap/CRM_OPPORTUNITY/",
 	
 	onInit: function() {
-		this.testNoteDelete();
+		//this.testNoteDelete();
+		//this.testNoteRead();
+		this.testFilter();
 	},
 	
 	testOppheaderUpdate: function() {
@@ -101,12 +103,13 @@ sap.ui.controller("2014-12-30-fioriodatatest.JsonDemo", {
 	
 	testNoteRead: function () {
 		var baseURL = "/sap/opu/odata/sap/CRM_OPPORTUNITY/";
-		var Opp_GUID_5576QHD504 = "Opportunities(guid'3440B5B1-72DE-1ED4-A2D1-EE7101F391CB')";
+		var Opp_GUID_5576QHD504 = "Opportunities(guid'3440B5B1-73AE-1ED4-8D89-9796FCC30B06')";
 		var oConfig = { json: true, loadMetadataAsync: false };
 		var oModel = new sap.ui.model.odata.ODataModel(baseURL, oConfig);
 		this.sPath = Opp_GUID_5576QHD504;
 		
 		var controller = this;
+		for( var i = 0; i < 100; i++){
 		oModel.read(
 				this.sPath,
 				null,
@@ -114,24 +117,57 @@ sap.ui.controller("2014-12-30-fioriodatatest.JsonDemo", {
 				true,
 				jQuery.proxy(function(odata, response) {
 					// response.body is a json stream
-					console.log("OData response: " + response.body);
-					var view = controller.getView();
-					/*var oInput = view._oInput;
-					var oTextModel = view.oTextModel;
-					oTextModel.oData = response.data;
-					oTextModel.updateBindings();   */  
+					// console.log("OData response: " + response.body);
+					console.log("Odata request finished successfully");
+					var view = controller.getView(); 
 					
 					var oTableModel = view.oTableModel;
 					var oData = oTableModel.oData;
 			        oData.OpportunityNotesSet = response.data.ComplexNotes.results;
 					oTableModel.updateBindings();
-					jQuery.sap.JerryTrace("2015-01-01");
+					//jQuery.sap.JerryTrace("2015-01-01");
 				
 				},this),
 				jQuery.proxy(function(oError){
 					
 					console.error("OData error occurred: " + oError);
 				},this));
+		}
+	},
+	
+	testFilter: function () {
+		var baseURL = "/sap/opu/odata/sap/CRM_OPPORTUNITY/";
+		var Opp_GUID_5576QHD504 = "/Opportunities?$skip=0&$top=20&$filter=substringof(%27sept%27,Description)&$select=Guid%2cId%2cDescription%2cClosingDate%2cExpectedSalesVolume%2cCurrencyCode%2cProspectNumber%2cProspectName%2cUserStatusCode%2cUserStatusText&$inlinecount=allpages&sap-client=001";
+		var oConfig = { json: true, loadMetadataAsync: false };
+		var oModel = new sap.ui.model.odata.ODataModel(baseURL, oConfig);
+		this.sPath = Opp_GUID_5576QHD504;
+		
+		var controller = this;
+		for( var i = 0; i < 100; i++){
+		oModel.read(
+				this.sPath,
+				null,
+				//[ "$expand=ComplexNotes" ],
+				null,
+				true,
+				jQuery.proxy(function(odata, response) {
+					// response.body is a json stream
+					// console.log("OData response: " + response.body);
+					console.log("Odata request finished successfully");
+					var view = controller.getView(); 
+					
+					var oTableModel = view.oTableModel;
+					var oData = oTableModel.oData;
+			        oData.OpportunityNotesSet = response.data.ComplexNotes.results;
+					oTableModel.updateBindings();
+					//jQuery.sap.JerryTrace("2015-01-01");
+				
+				},this),
+				jQuery.proxy(function(oError){
+					
+					console.error("OData error occurred: " + oError);
+				},this));
+		}
 	},
 	
 	/* DELETION */
