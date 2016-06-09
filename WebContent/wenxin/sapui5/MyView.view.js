@@ -7,6 +7,7 @@ sap.ui.jsview("wenxin.sapui5.MyView", {
 	},
 
 	createContent : function(oController) {
+		// 
 		var myButton = new sap.ui.commons.Button("btn",{});
 		/* 2016-06-07 19:19PM add by Jerry to demonstrate how to implement
 	     event handler for _change
@@ -14,6 +15,8 @@ sap.ui.jsview("wenxin.sapui5.MyView", {
 		myButton.attachEvent("_change", function(oEvent){
 			console.log("Hello， I am changed, new Value: " + oEvent.getParameter("newValue"));
 		});
+		
+		// wenxin.util.tool.injectFireEvent();
 		myButton.setText("Press me");
 		
 		var handler = function(oEvent){
