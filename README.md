@@ -1,0 +1,2 @@
+# Learning progress
+2016-07-19 R3AR3出现wait的状态是因为太多的request占据了running process，没有open的process再能处理操作了。
