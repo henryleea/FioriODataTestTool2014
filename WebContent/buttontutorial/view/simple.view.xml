@@ -1,3 +1,6 @@
 <core:View xmlns:core="sap.ui.core" xmlns:common="sap.ui.commons" controllerName="buttontutorial.view.simple">
-	<common:Button text="Jerry" id="jerryButton"/>
+	<common:Button text="Load Image" id="jerryButton" press="onPress"/>
+	<common:Image id="jerryImage" 
+	height="400px"
+	width="400px"/>
 </core:View>
