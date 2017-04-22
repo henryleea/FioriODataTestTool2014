@@ -9,6 +9,7 @@
 		showNavButton="{device>/isPhone}"
 		navButtonPress="handleNavButtonPress" >
 		<ObjectHeader
+		    icon="https://global.sap.com/global/images/SAPLogo.gif"
 			title="{SoId}"
 			number="{GrossAmount}"
 			numberUnit="{CurrencyCode}" >
