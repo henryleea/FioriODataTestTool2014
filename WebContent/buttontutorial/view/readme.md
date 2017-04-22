@@ -1,0 +1,1 @@
+for my SCN blog [Use Proxy pattern to make better image loading behavior in UI5](https://blogs.sap.com/2017/04/22/use-proxy-pattern-to-make-better-image-loading-behavior-in-ui5/)
