@@ -3,7 +3,13 @@ sap.ui.controller("scn_exercise.view.App", {
 		debugger;
 		var v = this.getView();
 		var dom = v.getDomRef();
-		
+		var iDiv = document.createElement('div');
+		iDiv.id = 'jerry';
+		dom.appendChild(iDiv);
+		var iCanvas = document.createElement('canvas');
+		iCanvas.id = 'canvas';
+		iDiv.appendChild(iCanvas);
+		startSnow();
 	},
 
 	/**
