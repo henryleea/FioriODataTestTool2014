@@ -1,14 +1,15 @@
 sap.ui.controller("scn_exercise.view.App", {
 	onAfterRendering:function(){ 
 		debugger;
-		var v = this.getView();
-		var dom = v.getDomRef();
-		var iDiv = document.createElement('div');
-		iDiv.id = 'jerry';
-		dom.appendChild(iDiv);
+		/*var v = this.getView();
+		var dom = v.getDomRef();*/
+		var dom = document.getElementById("content");
+		//var iDiv = document.createElement('div');
+		//iDiv.id = 'jerry';
+		//dom.appendChild(iDiv);
 		var iCanvas = document.createElement('canvas');
 		iCanvas.id = 'canvas';
-		iDiv.appendChild(iCanvas);
+		dom.appendChild(iCanvas);
 		startSnow();
 	},
 
