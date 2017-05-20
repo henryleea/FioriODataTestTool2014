@@ -1,5 +1,11 @@
 sap.ui.controller("scn_exercise.view.App", {
+	onBeforeRendering:function(){ 
+		debugger;
+	},
 	
+	onInit: function() {
+		debugger;
+	},
 	/**
 	 * Navigates to another page
 	 * @param {string} pageId The id of the next page
