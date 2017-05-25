@@ -6,7 +6,8 @@ sap.ui.controller("2014-12-30-fioriodatatest.JsonDemo", {
 	ODATA_BASEURL:"/sap/opu/odata/sap/CRM_OPPORTUNITY/",
 	
 	onInit: function() {
-		this.testNoteDelete();
+		//this.testNoteDelete();
+		this.sendRequestInLoop();
 	},
 	
 	testOppheaderUpdate: function() {
@@ -99,9 +100,26 @@ sap.ui.controller("2014-12-30-fioriodatatest.JsonDemo", {
 		});
 	},
 	
+	sendRequestInLoop: function(){
+		var baseURL = "/sap/opu/odata/sap/CRM_OPPORTUNITY/";
+		this.sPath = "Opportunities?$skip=0&$top=20&$filter=substringof(%27Jerry%27,Description)&$select=Guid%2cId%2cDescription%2cClosingDate%2cExpectedSalesVolume%2cCurrencyCode%2cProspectNumber%2cProspectName%2cUserStatusCode%2cUserStatusText&$inlinecount=allpages&sap-client=001";
+		var oConfig = { json: true, loadMetadataAsync: false };
+		var oModel = new sap.ui.model.odata.ODataModel(baseURL, oConfig);
+		
+		for( var i = 0; i < 10; i++) {
+			oModel.read( this.sPath, null, null, true,
+				jQuery.proxy(function(odata, response) {
+					console.log("OData response: " + response.body.length);
+				},this),
+				jQuery.proxy(function(oError){
+					console.error("OData error occurred: " + oError);
+				},this));
+		}
+	},
+	
 	testNoteRead: function () {
 		var baseURL = "/sap/opu/odata/sap/CRM_OPPORTUNITY/";
-		var Opp_GUID_5576QHD504 = "Opportunities(guid'3440B5B1-72DE-1ED4-A2D1-EE7101F391CB')";
+		var Opp_GUID_5576QHD504 = "Opportunities(guid'FA163EE5-6C3A-1ED6-9DC1-A73EEF634C10')";
 		var oConfig = { json: true, loadMetadataAsync: false };
 		var oModel = new sap.ui.model.odata.ODataModel(baseURL, oConfig);
 		this.sPath = Opp_GUID_5576QHD504;
@@ -113,13 +131,8 @@ sap.ui.controller("2014-12-30-fioriodatatest.JsonDemo", {
 				[ "$expand=ComplexNotes" ],
 				true,
 				jQuery.proxy(function(odata, response) {
-					// response.body is a json stream
 					console.log("OData response: " + response.body);
 					var view = controller.getView();
-					/*var oInput = view._oInput;
-					var oTextModel = view.oTextModel;
-					oTextModel.oData = response.data;
-					oTextModel.updateBindings();   */  
 					
 					var oTableModel = view.oTableModel;
 					var oData = oTableModel.oData;
