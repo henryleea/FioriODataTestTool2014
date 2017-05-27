@@ -115,6 +115,7 @@
 				
 				$("body").css('background-color','#D9B300');
 				$('#deadline_title').html("Project deadline: " + getDeadlineString(deadline));
+				countDownInit(); 
 				$('#countdown_dashboard').countDown({
 					targetDate: {
 						'day': 		deadline.date,
