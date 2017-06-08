@@ -22,10 +22,10 @@ sap.ui.controller("scn_exercise.view.Detail", {
 			bundle.getText("ApproveDialogMsg"),
 			function (oAction) {
 				if (sap.m.MessageBox.Action.OK === oAction) {
-					// notify user
+					var eventBus = sap.ui.getCore().getEventBus();
 					var successMsg = bundle.getText("ApproveDialogSuccessMsg");
 					sap.m.MessageToast.show(successMsg);
-					// TODO call proper service method and update model (not part of this session)
+					
 				}
 			},
 			

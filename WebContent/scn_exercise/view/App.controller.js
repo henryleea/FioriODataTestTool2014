@@ -7,10 +7,11 @@ sap.ui.controller("scn_exercise.view.App", {
 		//var iDiv = document.createElement('div');
 		//iDiv.id = 'jerry';
 		//dom.appendChild(iDiv);
+		/* Jerry 2017-06-08 1:22PM comment it out for the moment
 		var iCanvas = document.createElement('canvas');
 		iCanvas.id = 'canvas';
 		dom.appendChild(iCanvas);
-		startSnow();
+		startSnow();*/
 	},
 
 	/**
