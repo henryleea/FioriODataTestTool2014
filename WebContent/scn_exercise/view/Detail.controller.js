@@ -11,8 +11,12 @@ sap.ui.controller("scn_exercise.view.Detail", {
 		this.byId("SupplierForm").bindElement("BusinessPartner"); 
 	},
 	
+	onOrderApproved: function(oData){
+		console.log(oData);
+	}, 
 	onInit: function() {
-		
+		var eventBus = sap.ui.getCore().getEventBus();
+		eventBus.subscribe("jerry.sap", "OrderApproved", this.onOrderApproved, this);
 	},
 	handleApprove : function (evt) {
 
@@ -23,6 +27,10 @@ sap.ui.controller("scn_exercise.view.Detail", {
 			function (oAction) {
 				if (sap.m.MessageBox.Action.OK === oAction) {
 					var eventBus = sap.ui.getCore().getEventBus();
+					eventBus.publish("jerry.sap", "OrderApproved", 
+							{
+								"name": "Jerry"
+							});
 					var successMsg = bundle.getText("ApproveDialogSuccessMsg");
 					sap.m.MessageToast.show(successMsg);
 					
