@@ -11,8 +11,9 @@ sap.ui.controller("scn_exercise.view.Detail", {
 		this.byId("SupplierForm").bindElement("BusinessPartner"); 
 	},
 	
-	onOrderApproved: function(oData){
-		console.log(oData);
+	onOrderApproved: function(sChannelId, sEventId, oData){
+		console.log("Channel id: " + sChannelId + " eventId: " + sEventId 
+				+ " event parameter: " + oData);
 	}, 
 	onInit: function() {
 		var eventBus = sap.ui.getCore().getEventBus();
