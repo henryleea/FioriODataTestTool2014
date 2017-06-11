@@ -21,16 +21,19 @@ sap.ui.controller("2014-12-30-fioriodatatest.JsonDemo", {
 			},this));
 	}, 
 	readviaPromise: function(){
-		var p = new Promise(function(resolve, reject){
-	        //做一些异步操作
-	        setTimeout(function(){
-	            console.log('执行完成');
-	            resolve('随便什么数据');
-	        }, 2000);
-	    });
-	    var a = "Jerry";
-	    return p;   
-		
+		/*
+		 * Jerry: 2017-06-11 14:54PM oModel.read signature is fixed so that
+		 * I cannot redesign it via promise?
+		function issueRequest(){
+			var p = new Promise(function(resolve, reject){
+		        setTimeout(function(){
+		            console.log('执行完成');
+		            resolve('随便什么数据');
+		        }, 2000);
+		    });
+		    var a = "Jerry";
+		    return p;   
+		}*/
 	}, 
 	testOppheaderUpdate: function() {
 		var baseURL = "/sap/opu/odata/sap/CRM_OPPORTUNITY/";
