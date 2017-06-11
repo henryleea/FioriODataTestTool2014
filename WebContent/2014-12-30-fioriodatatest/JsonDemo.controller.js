@@ -6,8 +6,35 @@ sap.ui.controller("2014-12-30-fioriodatatest.JsonDemo", {
 	ODATA_BASEURL:"/sap/opu/odata/sap/CRM_OPPORTUNITY/",
 	
 	onInit: function() {
-		this.normalRead();
+		debugger;
+		
+		// this.readviaPromise().then(this.renderResultInUI);
+		
+		// this.normalRead();
+		
+		this.readViaES2017();
 	},
+	
+	
+	readViaES2017: function(){
+		function issueRequest(){
+			var baseURL = "/sap/opu/odata/sap/CRM_OPPORTUNITY/";
+			var oConfig = { json: true, loadMetadataAsync: false };
+			var oModel = new sap.ui.model.odata.ODataModel(baseURL, oConfig);
+				
+			oModel.read( sPath, null, null, true, function(odata, response) {
+				return response;
+			});
+		}
+		/*const makeRequest = async () => {
+			  this.renderResultInUI(await issueRequest());
+		};
+		makeRequest();*/
+	},
+		
+	renderResultInUI:function(response){
+		console.log("Jerry Render response: " + response.body.length);
+	}, 
 	
 	normalRead: function(){
 		var baseURL = "/sap/opu/odata/sap/CRM_OPPORTUNITY/";
@@ -17,23 +44,26 @@ sap.ui.controller("2014-12-30-fioriodatatest.JsonDemo", {
 		
 		oModel.read( this.sPath, null, null, true,
 			jQuery.proxy(function(odata, response) {
-				console.log("Jerry OData response: " + response.body.length);
+				this.renderResultInUI(response);
 			},this));
 	}, 
 	readviaPromise: function(){
+		var sPath = "Opportunities?$skip=0&$top=20&$filter=substringof(%27Jerry%27,Description)&$select=Guid%2cId%2cDescription%2cClosingDate%2cExpectedSalesVolume%2cCurrencyCode%2cProspectNumber%2cProspectName%2cUserStatusCode%2cUserStatusText&$inlinecount=allpages&sap-client=001";
 		/*
 		 * Jerry: 2017-06-11 14:54PM oModel.read signature is fixed so that
-		 * I cannot redesign it via promise?
-		function issueRequest(){
+		 * I cannot redesign it via promise? */
+		return (function issueRequest(){
 			var p = new Promise(function(resolve, reject){
-		        setTimeout(function(){
-		            console.log('执行完成');
-		            resolve('随便什么数据');
-		        }, 2000);
+				var baseURL = "/sap/opu/odata/sap/CRM_OPPORTUNITY/";
+				var oConfig = { json: true, loadMetadataAsync: false };
+				var oModel = new sap.ui.model.odata.ODataModel(baseURL, oConfig);
+				
+				oModel.read( sPath, null, null, true, function(odata, response) {
+					resolve(response);
+				});
 		    });
-		    var a = "Jerry";
 		    return p;   
-		}*/
+		})();
 	}, 
 	testOppheaderUpdate: function() {
 		var baseURL = "/sap/opu/odata/sap/CRM_OPPORTUNITY/";
