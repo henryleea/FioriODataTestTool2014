@@ -6,10 +6,32 @@ sap.ui.controller("2014-12-30-fioriodatatest.JsonDemo", {
 	ODATA_BASEURL:"/sap/opu/odata/sap/CRM_OPPORTUNITY/",
 	
 	onInit: function() {
-		//this.testNoteDelete();
-		this.sendRequestInLoop();
+		this.normalRead();
 	},
 	
+	normalRead: function(){
+		var baseURL = "/sap/opu/odata/sap/CRM_OPPORTUNITY/";
+		this.sPath = "Opportunities?$skip=0&$top=20&$filter=substringof(%27Jerry%27,Description)&$select=Guid%2cId%2cDescription%2cClosingDate%2cExpectedSalesVolume%2cCurrencyCode%2cProspectNumber%2cProspectName%2cUserStatusCode%2cUserStatusText&$inlinecount=allpages&sap-client=001";
+		var oConfig = { json: true, loadMetadataAsync: false };
+		var oModel = new sap.ui.model.odata.ODataModel(baseURL, oConfig);
+		
+		oModel.read( this.sPath, null, null, true,
+			jQuery.proxy(function(odata, response) {
+				console.log("Jerry OData response: " + response.body.length);
+			},this));
+	}, 
+	readviaPromise: function(){
+		var p = new Promise(function(resolve, reject){
+	        //做一些异步操作
+	        setTimeout(function(){
+	            console.log('执行完成');
+	            resolve('随便什么数据');
+	        }, 2000);
+	    });
+	    var a = "Jerry";
+	    return p;   
+		
+	}, 
 	testOppheaderUpdate: function() {
 		var baseURL = "/sap/opu/odata/sap/CRM_OPPORTUNITY/";
 		var oConfig = { json: true, loadMetadataAsync: false };
@@ -99,7 +121,6 @@ sap.ui.controller("2014-12-30-fioriodatatest.JsonDemo", {
 			console.log("error: " + oError);						
 		});
 	},
-	
 	sendRequestInLoop: function(){
 		var baseURL = "/sap/opu/odata/sap/CRM_OPPORTUNITY/";
 		this.sPath = "Opportunities?$skip=0&$top=20&$filter=substringof(%27Jerry%27,Description)&$select=Guid%2cId%2cDescription%2cClosingDate%2cExpectedSalesVolume%2cCurrencyCode%2cProspectNumber%2cProspectName%2cUserStatusCode%2cUserStatusText&$inlinecount=allpages&sap-client=001";
@@ -146,9 +167,7 @@ sap.ui.controller("2014-12-30-fioriodatatest.JsonDemo", {
 					console.error("OData error occurred: " + oError);
 				},this));
 	},
-	
-	/* DELETION */
-	
+
 	testNoteDelete: function () {
 		var baseURL = "/sap/opu/odata/sap/CRM_OPPORTUNITY/";
 		var Opp_GUID_5576QHD504 = "Opportunities(guid'3440B5B1-72DE-1ED4-A2D1-EE7101F391CB')";
@@ -203,7 +222,6 @@ sap.ui.controller("2014-12-30-fioriodatatest.JsonDemo", {
 					console.log("OData response: " + response.body);
 				},this),
 				jQuery.proxy(function(oError){
-					
 					console.error("OData error occurred: " + oError);
 				},this));
 	},
@@ -226,30 +244,4 @@ sap.ui.controller("2014-12-30-fioriodatatest.JsonDemo", {
         	console.log("error occurred during batch request");
         },this))
 	}
-/**
-* Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
-* (NOT before the first rendering! onInit() is used for that one!).
-* @memberOf 2014-12-30-fioriodatatest.JsonDemo
-*/
-//	onBeforeRendering: function() {
-//
-//	},
-
-/**
-* Called when the View has been rendered (so its HTML is part of the document). Post-rendering manipulations of the HTML could be done here.
-* This hook is the same one that SAPUI5 controls get after being rendered.
-* @memberOf 2014-12-30-fioriodatatest.JsonDemo
-*/
-//	onAfterRendering: function() {
-//
-//	},
-
-/**
-* Called when the Controller is destroyed. Use this one to free resources and finalize activities.
-* @memberOf 2014-12-30-fioriodatatest.JsonDemo
-*/
-//	onExit: function() {
-//
-//	}
-
 });
