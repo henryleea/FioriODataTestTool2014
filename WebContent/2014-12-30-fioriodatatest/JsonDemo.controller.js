@@ -12,10 +12,11 @@ sap.ui.controller("2014-12-30-fioriodatatest.JsonDemo", {
 		
 		// this.normalRead();
 		
-		this.readViaES2017();
+		// this.readViaES2017();
 	},
 	
-	
+	/* Jerry 2017-06-11 4:27PM
+	 * cannot support for the moment 
 	readViaES2017: function(){
 		function issueRequest(){
 			var baseURL = "/sap/opu/odata/sap/CRM_OPPORTUNITY/";
@@ -26,12 +27,14 @@ sap.ui.controller("2014-12-30-fioriodatatest.JsonDemo", {
 				return response;
 			});
 		}
-		/*const makeRequest = async () => {
-			  this.renderResultInUI(await issueRequest());
+		const makeRequest = async function(){
+			
+			  //this.renderResultInUI(await issueRequest());
 		};
-		makeRequest();*/
+		makeRequest();
 	},
-		
+	*/
+	
 	renderResultInUI:function(response){
 		console.log("Jerry Render response: " + response.body.length);
 	}, 
