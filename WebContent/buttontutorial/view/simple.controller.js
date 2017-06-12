@@ -15,6 +15,20 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller){
 		this.loadImageWithProxy(image);
 	},
 	
+	onInit: function(){
+		var oModel = new sap.ui.model.json.JSONModel();
+		var myData = {"field_for_text": "Jerry button label"};
+
+		oModel.setData(myData);
+		var button = this.getView().byId("jerryButton");
+		button.setModel(oModel);
+		button.bindProperty("text", "/field_for_text");
+		
+		myData.field_for_text = "new";
+		// oModel.refresh();
+		button.oModel = oModel;
+
+	},
 	injectProxy: (function(){
 		var imgProxy = new Image();
 
