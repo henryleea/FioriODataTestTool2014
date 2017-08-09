@@ -24,10 +24,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller){
 		button.setModel(oModel);
 		button.bindProperty("text", "/field_for_text");
 		
-		myData.field_for_text = "new";
-		// oModel.refresh();
 		button.oModel = oModel;
-
 	},
 	injectProxy: (function(){
 		var imgProxy = new Image();

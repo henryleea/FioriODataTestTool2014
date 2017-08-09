@@ -6,11 +6,11 @@ sap.ui.controller("2014-12-30-fioriodatatest.JsonDemo", {
 	ODATA_BASEURL:"/sap/opu/odata/sap/CRM_OPPORTUNITY/",
 	
 	onInit: function() {
-		debugger;
+		// debugger;
 		
 		// this.readviaPromise().then(this.renderResultInUI);
 		
-		// this.normalRead();
+		this.normalRead();
 		
 		// this.readViaES2017();
 	},
