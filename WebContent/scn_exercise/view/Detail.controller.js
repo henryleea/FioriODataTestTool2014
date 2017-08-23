@@ -34,55 +34,65 @@ sap.ui.controller("scn_exercise.view.Detail", {
 		}
 	},
 	
+	bindAttachment: function(){
+		var data = {
+				OpportunityAttachments: []
+			};
+		var length = 1;
+			for (var i = 0; i < length; i++) {
+                
+				var value = {
+					Name: "Jerry",
+					CreatedBy: "Jerry",
+					MimeType: "txt",
+					DocumentId: "123",
+					CreatedAt: "20131212"
+				};
+				
+				var o = {
+					name: value.Name,
+					uploadedDate: value.CreatedAt,
+					contributor: value.CreatedBy,
+					fileExtension: value.MimeType,
+					fileId: value.DocumentId
+				};
+				data.OpportunityAttachments.push(o);
+			}
+
+			this.byId('fileupload').setModel(new sap.ui.model.json.JSONModel(data));
+			
+			var oFileUploadCol = this.byId("fileupload");
+			if(oFileUploadCol) {
+			
+				if(!oFileUploadCol.getBindingInfo("items")) {
+					var oFileUploadItem = new sap.m.UploadCollectionItem({
+				          contributor : "{contributor}",
+					      documentId : "{fileId}",
+					      fileName : "{name}",
+					      fileSize : "{size}",
+					      mimeType : "{fileExtension}",
+					      thumbnailUrl : "",
+					      uploadedDate : "{path: 'uploadedDate', type: 'sap.ui.model.type.Date', formatOptions: { style: 'medium'}}",
+					      url : "{url}",
+					      enableEdit : true,
+					      enableDelete : true,
+					      visibleEdit :  true,
+					      visibleDelete :true
+					});
+					
+					
+					oFileUploadCol.bindAggregation("items", {
+						path : "/OpportunityAttachments",
+						template : oFileUploadItem,
+						sorter : new sap.ui.model.Sorter("uploadedDate", true, false)
+					}); 
+				}
+			}
+	}, 
 	onUploadComplete : function(oEvent) {
 		debugger;
-		var oData = this.getView().byId("UploadCollection").getModel()
-				.getData();
-		var aItems = jQuery.extend(true, {}, oData).items;
-		var oItem = {};
-		var sUploadedFile = oEvent.getParameter("files")[0].fileName;
-		// at the moment parameter fileName is not set in IE9
-		if (!sUploadedFile) {
-			var aUploadedFile = (oEvent.getParameters().getSource()
-					.getProperty("value")).split(/\" "/);
-			sUploadedFile = aUploadedFile[0];
-		}
-		oItem = {
-			"documentId" : jQuery.now().toString(), // generate Id,
-			"fileName" : sUploadedFile,
-			"mimeType" : "",
-			"thumbnailUrl" : "",
-			"url" : "",
-			"attributes" : [ {
-				"title" : "Uploaded By",
-				"text" : "You"
-			}, {
-				"title" : "Uploaded On",
-				"text" : new Date(jQuery.now()).toLocaleDateString()
-			}, {
-				"title" : "File Size",
-				"text" : "505000"
-			} ]
-		};
-
-		if (this.getView().byId("modeSwitch").getState()) {
-			oItem.visibleEdit = false;
-			oItem.visibleDelete = false;
-		} else {
-			oItem.visibleEdit = true;
-			oItem.visibleDelete = true;
-		}
-		aItems.unshift(oItem);
-		this.getView().byId("UploadCollection").getModel().setData({
-			"items" : aItems
-		});
-		// Sets the text to the label
-		this.getView().byId("attachmentTitle").setText(
-				this.getAttachmentTitleText());
-		// delay the success message for to notice onChange message
-		setTimeout(function() {
-			MessageToast.show("UploadComplete event triggered.");
-		}, 4000);
+		this.bindAttachment();
+		
 	},
 
 	onSeparatorsChange : function(oEvent) {
