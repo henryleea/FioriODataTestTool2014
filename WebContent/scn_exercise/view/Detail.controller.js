@@ -38,15 +38,15 @@ sap.ui.controller("scn_exercise.view.Detail", {
 		var data = {
 				OpportunityAttachments: []
 			};
-		var length = 1;
+		var length = 2;
 			for (var i = 0; i < length; i++) {
                 
 				var value = {
-					Name: "Jerry",
-					CreatedBy: "Jerry",
+					Name: "Jerry" + i,
+					CreatedBy: "Jerry" + i,
 					MimeType: "txt",
 					DocumentId: "123",
-					CreatedAt: "20131212"
+					CreatedAt: new Date(1503484205000) // "/Date(1503484205000)/"
 				};
 				
 				var o = {
