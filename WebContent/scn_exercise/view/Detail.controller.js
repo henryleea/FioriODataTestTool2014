@@ -19,6 +19,10 @@ sap.ui.controller("scn_exercise.view.Detail", {
 		var eventBus = sap.ui.getCore().getEventBus();
 		eventBus.subscribe("jerry.sap", "OrderApproved", this.onOrderApproved, this);
 	},
+	
+	onUploadComplete: function(){
+		debugger;
+	},
 	handleApprove : function (evt) {
 
 		// show confirmation dialog

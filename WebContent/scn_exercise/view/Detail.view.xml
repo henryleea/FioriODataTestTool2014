@@ -38,6 +38,21 @@
 						<Text text="{Street}" />
 					</form:SimpleForm>
 				</IconTabFilter>
+				
+					<IconTabFilter id="tab_attachment" icon="sap-icon://attachment"
+						key="Attachments" text="Attachment" iconColor="Neutral">
+						<content>
+							<UploadCollection
+						        id="fileupload"
+						        maximumFilenameLength="40"
+						        multiple="false"
+						        showSeparators="All"
+						        uploadComplete="onUploadComplete"
+						        sameFilenameAllowed="true">
+						    </UploadCollection>
+						</content>
+					</IconTabFilter>
+					
 			</items>
 		</IconTabBar>
 		<Table
