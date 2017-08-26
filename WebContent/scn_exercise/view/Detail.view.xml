@@ -32,8 +32,9 @@
 					<content>
 						<UploadCollection id="fileupload"
 							maximumFilenameLength="40" multiple="false" showSeparators="All"
-							uploadComplete="onUploadComplete" sameFilenameAllowed="true">
+							uploadComplete="onUploadComplete" instantUpload= "false" sameFilenameAllowed="true">
 						</UploadCollection>
+						<Button id="Button" text="Upload Now" press="onStartUpload"> </Button>
 					</content>
 				</IconTabFilter>
 			</items>

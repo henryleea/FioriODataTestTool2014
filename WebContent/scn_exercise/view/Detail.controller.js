@@ -36,6 +36,7 @@ sap.ui.controller("scn_exercise.view.Detail", {
 		}
 	},
 	
+	// Jerry 2017-08-26 12:13PM for instant upload mode
 	bindAttachment: function(oEvent){
 		var data = {
 				OpportunityAttachments: []
@@ -96,7 +97,6 @@ sap.ui.controller("scn_exercise.view.Detail", {
 			}
 	}, 
 	onUploadComplete : function(oEvent) {
-		this.bindAttachment(oEvent);
 		
 	},
 
