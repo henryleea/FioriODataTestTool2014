@@ -13,6 +13,14 @@ sap.ui.controller("scn_exercise.view.Detail", {
 		this.byId("SupplierForm").bindElement("BusinessPartner");
 	},
 
+	onAfterRendering : function() {
+		var oUploadControl = this.byId("Jerryfileupload");
+		if( !oUploadControl)
+			return;
+		debugger;
+		// Jerry 2017-08-26 12:26PM - just call getDocumentById under the hood
+		var dom = oUploadControl.getDomRef();
+	},
 	onOrderApproved : function(sChannelId, sEventId, oData) {
 		console.log("Channel id: " + sChannelId + " eventId: " + sEventId
 				+ " event parameter: " + oData);

@@ -30,7 +30,7 @@
 				<IconTabFilter id="tab_attachment" icon="sap-icon://attachment"
 					key="Attachments" text="Attachment" iconColor="Neutral">
 					<content>
-						<UploadCollection id="fileupload"
+						<UploadCollection id="Jerryfileupload"
 							maximumFilenameLength="40" multiple="false" showSeparators="All"
 							uploadComplete="onUploadComplete" instantUpload= "false" sameFilenameAllowed="true">
 						</UploadCollection>
