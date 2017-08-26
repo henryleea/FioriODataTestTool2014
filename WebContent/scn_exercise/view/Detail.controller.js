@@ -2,6 +2,8 @@ jQuery.sap.require("scn_exercise.util.Formatter");
 jQuery.sap.require("sap.m.MessageBox");
 jQuery.sap.require("sap.m.MessageToast");
 
+// https://sapui5.hana.ondemand.com/#docs/guide/124ee13b03664b14b455630fb8171996.html
+
 sap.ui.controller("scn_exercise.view.Detail", {
 
 	handleNavButtonPress : function(evt) {
