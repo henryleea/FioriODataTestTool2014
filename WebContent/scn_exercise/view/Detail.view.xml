@@ -15,7 +15,7 @@
 		</ObjectHeader>
 		<IconTabBar expanded="{device>/isNoPhone}">
 			<items>
-				<IconTabFilter icon="sap-icon://supplier">
+				<IconTabFilter icon="sap-icon://supplier" text="General">
 					<form:SimpleForm id="SupplierForm" minWidth="1024">
 						<core:Title text="Address" />
 						<Label text="Name" />
