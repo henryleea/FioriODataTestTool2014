@@ -42,8 +42,8 @@ sap.ui.controller("scn_exercise.view.Detail", {
 			for (var i = 0; i < length; i++) {
                 
 				var value = {
-					Name: "Jerry" + i,
-					CreatedBy: "Jerry" + i,
+					Name: "File Name" + i,
+					CreatedBy: "Contributor" + i,
 					MimeType: "txt",
 					DocumentId: "123",
 					CreatedAt: new Date(1503484205000) // "/Date(1503484205000)/"
@@ -54,7 +54,8 @@ sap.ui.controller("scn_exercise.view.Detail", {
 					uploadedDate: value.CreatedAt,
 					contributor: value.CreatedBy,
 					fileExtension: value.MimeType,
-					fileId: value.DocumentId
+					fileId: value.DocumentId,
+					size: 100
 				};
 				data.OpportunityAttachments.push(o);
 			}
