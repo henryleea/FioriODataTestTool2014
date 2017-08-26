@@ -34,10 +34,13 @@ sap.ui.controller("scn_exercise.view.Detail", {
 		}
 	},
 	
-	bindAttachment: function(){
+	bindAttachment: function(oEvent){
 		var data = {
 				OpportunityAttachments: []
 			};
+		
+		var oUploadedFile = oEvent.getParameter("files")[0];
+		debugger;
 		var length = 2;
 			for (var i = 0; i < length; i++) {
                 
@@ -91,8 +94,7 @@ sap.ui.controller("scn_exercise.view.Detail", {
 			}
 	}, 
 	onUploadComplete : function(oEvent) {
-		debugger;
-		this.bindAttachment();
+		this.bindAttachment(oEvent);
 		
 	},
 

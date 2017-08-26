@@ -1,6 +1,5 @@
 sap.ui.controller("scn_exercise.view.App", {
 	onAfterRendering:function(){ 
-		debugger;
 		/*var v = this.getView();
 		var dom = v.getDomRef();*/
 		var dom = document.getElementById("content");
