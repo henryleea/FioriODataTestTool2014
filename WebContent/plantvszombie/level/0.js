@@ -32,7 +32,7 @@ oS.Init({
 		NewMusic("Faster.swf")
 	},
 	StartGameMusic : "Faster.swf",
-	backgroundImage : "images/interface/Logo.jpg",
+	backgroundImage : "plantvszombie/images/interface/Logo.jpg",
 	LoadAccess : function(a) {
 		EBody = document.body;
 		EElement = document.documentElement;

@@ -87,7 +87,7 @@ var $User = function() {
       return this
     }
   },
-  ShadowPNG = "images/interface/plantshadow" + ($User.Browser.IE6 ? (document.execCommand("BackgroundImageCache", false, true), "8.gif") : "32.png"),
+  ShadowPNG = "plantvszombie/images/interface/plantshadow" + ($User.Browser.IE6 ? (document.execCommand("BackgroundImageCache", false, true), "8.gif") : "32.png"),
   innerText = (function() {
     return $User.Browser.IE ? ($Random = "?", function(b, a) {
       b.innerText = a
@@ -137,7 +137,7 @@ var $User = function() {
       }!this.PicArr && (this.PicArr = []);
       !this.PName && (this.PName = []);
       !this.ZName && (this.ZName = []);
-      !this.backgroundImage && (this.backgroundImage = "images/interface/background1.jpg");
+      !this.backgroundImage && (this.backgroundImage = "plantvszombie/images/interface/background1.jpg");
       !this.LF && (this.LF = [0, 1, 1, 1, 1, 1]);
       !this.ZF && (this.ZF = this.LF);
       !this.LargeWaveFlag && (this.LargeWaveFlag = {});
@@ -181,12 +181,12 @@ var $User = function() {
       innerText($("sFlagMeterTitleF"), d.data);
       $("dFlagMeterTitleB").insertBefore(d, $("sFlagMeterTitleF"));
       u += (r = k.length);
-      NewImg(0, "images/interface/brain.png", "", $Pn.oBrains = NewEle(0, "div", "position:absolute"));
+      NewImg(0, "plantvszombie/images/interface/brain.png", "", $Pn.oBrains = NewEle(0, "div", "position:absolute"));
       switch (p.Coord) {
         case 2:
-          NewImg(0, "images/interface/PoolCleaner.png", "", $Pn.oPoolCleaner = NewEle(0, "div", "position:absolute"));
+          NewImg(0, "plantvszombie/images/interface/PoolCleaner.png", "", $Pn.oPoolCleaner = NewEle(0, "div", "position:absolute"));
         case 1:
-          NewImg(0, "images/interface/LawnCleaner.png", "", $Pn.oLawnCleaner = NewEle(0, "div", "position:absolute"));
+          NewImg(0, "plantvszombie/images/interface/LawnCleaner.png", "", $Pn.oLawnCleaner = NewEle(0, "div", "position:absolute"));
           break
       }
       while (r--) {
@@ -276,7 +276,7 @@ var $User = function() {
         SetStyle($("tGround"), b);
         var e = function(h) {
           var i = oS;
-          NewImg("imgGrowSoil", "images/interface/GrowSoil.png", "visibility:hidden;z-index:50", EDPlants);
+          NewImg("imgGrowSoil", "plantvszombie/images/interface/GrowSoil.png", "visibility:hidden;z-index:50", EDPlants);
           NewEle("dTitle", "div", 0, 0, EDAll);
           innerText(ESSunNum, i.SunNum);
           InitPCard();
@@ -502,7 +502,7 @@ oP = {
       !--j.NumZombies && (f < j.FlagNum ? (j.ReadyFlag = ++f, oSym.addTask(500, j.FlagPrgs, [])) : j.FlagToEnd())
     }) : r.MonPrgs = function() {};
     (!a || !a.FlagToEnd) && (r.FlagToEnd = function() {
-      NewImg("imgSF", "images/interface/trophy.png", "left:417px;top:233px;z-index:255", EDAll, {
+      NewImg("imgSF", "plantvszombie/images/interface/trophy.png", "left:417px;top:233px;z-index:255", EDAll, {
         onclick: function() {
           SelectModal(0)
         }
@@ -1084,7 +1084,7 @@ oP = {
   }
   $("dHandBookPCard").innerHTML = d;
   ViewProducePlant(e[0]);
-  $("dHandBookPZ").style.backgroundImage = "url(images/interface/Almanac_PlantBack.jpg)";
+  $("dHandBookPZ").style.backgroundImage = "url(plantvszombie/images/interface/Almanac_PlantBack.jpg)";
   SetVisible($("dHandBookPZ"));
   SetNone($("dHandBookZ"));
   SetBlock($("dHandBookP"))
@@ -1103,7 +1103,7 @@ oP = {
   }
   $("dHandBookZCard").innerHTML = d;
   ViewProduceZombie(e[0]);
-  $("dHandBookPZ").style.backgroundImage = "url(images/interface/Almanac_ZombieBack.jpg)";
+  $("dHandBookPZ").style.backgroundImage = "url(plantvszombie/images/interface/Almanac_ZombieBack.jpg)";
   SetVisible($("dHandBookPZ"));
   SetNone($("dHandBookP"));
   SetBlock($("dHandBookZ"))
@@ -1323,7 +1323,7 @@ oP = {
   c && (c.PKind || !(b[1] || b[2])) && (c.Die(), oS.MPID = "");
   CancelShovel()
 }, ChoseShovel = function(a) {
-  WhichMouseButton(a) < 2 && (SetHidden($("imgShovel")), NewImg("tShovel", "images/interface/Shovel.png", "left:" + (a.clientX - 10) + "px;top:" + (a.clientY + document.body.scrollTop - 17) + "px;z-index:1", EDAll), oS.Chose = -1, GroundOnmousemove = GroundOnmousemove2, StopBubble(a))
+  WhichMouseButton(a) < 2 && (SetHidden($("imgShovel")), NewImg("tShovel", "plantvszombie/images/interface/Shovel.png", "left:" + (a.clientX - 10) + "px;top:" + (a.clientY + document.body.scrollTop - 17) + "px;z-index:1", EDAll), oS.Chose = -1, GroundOnmousemove = GroundOnmousemove2, StopBubble(a))
 }, CancelShovel = function(a) {
   var b = oS.MPID;
   ClearChild($("tShovel"));
@@ -1377,7 +1377,7 @@ oP = {
     left: h,
     top: d
   };
-  NewImg(g, "images/interface/Sun.gif", c, EDAll, {
+  NewImg(g, "plantvszombie/images/interface/Sun.gif", c, EDAll, {
     onclick: function() {
       ClickSun(this.id)
     }
@@ -1417,7 +1417,7 @@ oP = {
     ArSun[b].C && ClickSun(b)
   }
 }, ShowLargeWave = function(a) {
-  NewImg("LargeWave", "images/interface/LargeWave.gif", "left:71px;top:249px;width:858px;height:102px;z-index:50", EDAll);
+  NewImg("LargeWave", "plantvszombie/images/interface/LargeWave.gif", "left:71px;top:249px;width:858px;height:102px;z-index:50", EDAll);
   oSym.addTask(4, function(b, c, d) {
     SetStyle($("LargeWave"), {
       width: (b -= 57.2) + "px",
@@ -1431,7 +1431,7 @@ oP = {
   }, [858, 102, a])
 }, ShowFinalWave = function() {
   var a = function(b) {
-    NewImg("FinalWave", "images/interface/FinalWave.gif", "left:122px;top:194px;width:756px;height:213px;z-index:50", EDAll);
+    NewImg("FinalWave", "plantvszombie/images/interface/FinalWave.gif", "left:122px;top:194px;width:756px;height:213px;z-index:50", EDAll);
     oSym.addTask(4, function(c, e, d) {
       SetStyle($("FinalWave"), {
         width: (c -= 50.4) + "px",
@@ -1448,14 +1448,14 @@ oP = {
     oSym.addTask(560, a, [150])
   }): a(500)
 }, GameOver = function() {
-  NewImg("iGameOver", "images/interface/ZombiesWon.png", "width:900px;height:600px;z-index:255", EDAll, {
+  NewImg("iGameOver", "plantvszombie/images/interface/ZombiesWon.png", "width:900px;height:600px;z-index:255", EDAll, {
     onclick: function() {
       SelectModal(oS.Lvl)
     }
   });
   oSym.Stop()
 }, PrepareGrowPlants = function(a) {
-  NewImg("PrepareGrow", "images/interface/PrepareGrowPlants.gif" + $Random + Math.random(), "z-index:50;left:" + (oS.W * 0.5 - 77) + "px;top:" + (oS.H * 0.5 - 54) + "px", EDAll);
+  NewImg("PrepareGrow", "plantvszombie/images/interface/PrepareGrowPlants.gif" + $Random + Math.random(), "z-index:50;left:" + (oS.W * 0.5 - 77) + "px;top:" + (oS.H * 0.5 - 54) + "px", EDAll);
   oSym.addTask(250, function(b) {
     ClearChild($("PrepareGrow"));
     b()
@@ -1514,7 +1514,7 @@ oP = {
   document.cookie = b
 }, deleteCookie = function(a) {
   document.cookie = a + "=0;"
-}, WordUTF8 = '<div id="dLogo" style="position:absolute;width:900px;height:600px;z-index:1"><image src="images/interface/LogoWord.jpg" style="position:absolute;left:320px;top:15px"><div id="LogoWord" style="position:absolute;color:#FF0;top:480px;width:100%;height:100px"><span style="position:absolute;width:332px;height:94px;left:90px;top:5;cursor:pointer;background:url(images/interface/LoadBar.png)" onclick="SetBlock($(\'dSurface\'),$(\'iSurfaceBackground\'))"></span><span style="position:absolute;font-size:14px;left:450px;top:50px;line-height:1.5;font-weight:bold"><span style="cursor:pointer" onclick="SetVisible($(\'dProcess\'))">关于本程序</span>&nbsp;<span id="sTime"></span><br>更多请访问 <a href="http://www.lonelystar.org" target="_blank" style="color:#FF0;font-family:verdana">www.lonelystar.org</a></div></div>', SelectModal = function(g) {
+}, WordUTF8 = '<div id="dLogo" style="position:absolute;width:900px;height:600px;z-index:1"><image src="plantvszombie/images/interface/LogoWord.jpg" style="position:absolute;left:320px;top:15px"><div id="LogoWord" style="position:absolute;color:#FF0;top:480px;width:100%;height:100px"><span style="position:absolute;width:332px;height:94px;left:90px;top:5;cursor:pointer;background:url(plantvszombie/images/interface/LoadBar.png)" onclick="SetBlock($(\'dSurface\'),$(\'iSurfaceBackground\'))"></span><span style="position:absolute;font-size:14px;left:450px;top:50px;line-height:1.5;font-weight:bold"><span style="cursor:pointer" onclick="SetVisible($(\'dProcess\'))">关于本程序</span>&nbsp;<span id="sTime"></span><br>更多请访问 <a href="http://www.lonelystar.org" target="_blank" style="color:#FF0;font-family:verdana">www.lonelystar.org</a></div></div>', SelectModal = function(g) {
   oS.LvlClearFunc && oS.LvlClearFunc();
   var b = oS.GlobalVariables,
     c = oS.LvlVariables,
@@ -1552,7 +1552,7 @@ oP = {
     var e = $("JSPVZ");
     e && ClearChild(e);
     NewEle("JSPVZ", "script", "", {
-      src: "level/" + (oS.Lvl = f) + ".js",
+      src: "plantvszombie/level/" + (oS.Lvl = f) + ".js",
       type: "text/javascript"
     }, document.getElementsByTagName("head").item(0))
   }, [d])
