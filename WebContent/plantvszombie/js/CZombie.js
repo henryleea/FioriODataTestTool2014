@@ -322,6 +322,7 @@ var CZombies = function(b, a) {
   OrnNoneZombies = InheritO(CZombies, {
     getHurt: function(i, a, g, l, c, k, j) {
       var e = this;
+      console.log("Zombie HP: " + e.HP);
       if (!e.beAttacked) {
         j && e.Die(2);
         return
@@ -337,8 +338,9 @@ var CZombies = function(b, a) {
           return;
         case h < 91:
           e.HP = h;
+          console.log("This zombie is going die: " + e.HP);
           e.GoingDie(d[[e.LostHeadGif, e.LostHeadAttackGif][f]]);
-          return
+          return;
       }
       e.HP = h;
       switch (l) {
@@ -856,13 +858,17 @@ var CZombies = function(b, a) {
   }),
   oZombie = InheritO(OrnNoneZombies, {
     EName: "oZombie",
-    CName: "领带僵尸",
+    CName: "领带僵尸 change by Jerry",
     StandGif: 9,
+    /* control zombie speed
+    OSpeed: 10.2,
+    Speed: 10.2,
+    */
     PicArr: (function() {
       var a = "plantvszombie/images/Zombies/Zombie/";
       return ["plantvszombie/images/Card/Zombies/Zombie.png", "plantvszombie/images/Card/Zombies/ZombieG.png", a + "Zombie.gif", a + "ZombieAttack.gif", a + "ZombieLostHead.gif", a + "ZombieLostHeadAttack.gif", a + "ZombieHead.gif" + $Random, a + "ZombieDie.gif" + $Random, a + "BoomDie.gif" + $Random, a + "1.gif"]
     })(),
-    Produce: '韧性：<font color="#FF0000">低</font></p>这种僵尸喜爱脑髓，贪婪而不知足。脑髓，脑髓，脑髓，夜以继日地追求着。老而臭的脑髓？腐烂的脑髓？都没关系。僵尸需要它们。'
+    Produce: '韧性：<font color="#FF0000">低</font></p>Jerry:这种僵尸喜爱脑髓，贪婪而不知足。脑髓，脑髓，脑髓，夜以继日地追求着。老而臭的脑髓？腐烂的脑髓？都没关系。僵尸需要它们。'
   }),
   oZombie2 = InheritO(oZombie, {
     EName: "oZombie2"
