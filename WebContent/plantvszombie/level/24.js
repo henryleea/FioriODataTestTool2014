@@ -5,13 +5,13 @@ oS.Init({
 		//储存本关除了僵尸和植物以外的其他图片地址，比如背景、奖杯等，常用的其他图片比如阳光、界面等都在0关缓存了
 		PicArr:function(){
 			var Pro=oThreepeater.prototype,PicArr=Pro.PicArr;
-			return ['images/interface/background3.jpg',
+			return ['plantvszombie/images/interface/background3.jpg',
 				PicArr[Pro.CardGif],PicArr[Pro.NormalGif]]
 		}(),
 		Coord:2, //水池坐标系
 		SunNum:50,
 		LF:[0,1,1,2,2,1,1], //水池地形
-		backgroundImage:'images/interface/background3.jpg', //本关的背景图片
+		backgroundImage:'plantvszombie/images/interface/background3.jpg', //本关的背景图片
 		CanSelectCard:1, //是否可以选卡
 		LevelName:'关卡 3-4', //关卡名
 		LargeWaveFlag:{10:$('imgFlag3'),20:$('imgFlag1')}, //第几波使用哪个旗子
@@ -26,6 +26,6 @@ oS.Init({
 		FlagToMonitor:{9:[ShowLargeWave,0],19:[ShowFinalWave,0]},
 		FlagToEnd:function(){
 			NewImg('imgSF','images/Card/Plants/Threepeater.png','left:627px;top:325px',EDAll,{onclick:function(){SelectModal(0)}});
-			NewImg('PointerUD','images/interface/PointerDown.gif','top:290px;left:636px',EDAll); //上下箭头图片
+			NewImg('PointerUD','plantvszombie/images/interface/PointerDown.gif','top:290px;left:636px',EDAll); //上下箭头图片
 		}
 });

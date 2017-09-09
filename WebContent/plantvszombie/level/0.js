@@ -24,7 +24,7 @@ oS.Init({
 				a + "dialog_topright.png", a + "dialog_centerleft.png",
 				a + "dialog_centerright.png", a + "dialog_bottomleft.png",
 				a + "dialog_bottommiddle.png", a + "dialog_bottomright.png",
-				a + "brain.png", "images/Zombies/NewspaperZombie/1.gif" ]
+				a + "brain.png", "plantvszombie/images/Zombies/NewspaperZombie/1.gif" ]
 	}(),
 	LevelName : "JSPVZ",
 	ShowScroll : 1,
