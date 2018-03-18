@@ -9,3 +9,7 @@
 # 2017-08-23
 
 wiki: https://sapui5.hana.ondemand.com/explored.html#/sample/sap.m.sample.UploadCollection/preview
+
+# 2018-03-18
+
+In case the application does not work, delete tomcat instance and recreate it from scratch.
