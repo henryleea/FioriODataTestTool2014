@@ -13,3 +13,7 @@ wiki: https://sapui5.hana.ondemand.com/explored.html#/sample/sap.m.sample.Upload
 # 2018-03-18
 
 In case the application does not work, delete tomcat instance and recreate it from scratch.
+
+# 2018-04-03
+
+* [class sap.ui.base.ManagedObject](https://sapui5.hana.ondemand.com/#/api/sap.ui.base.ManagedObject/constructor)
