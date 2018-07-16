@@ -14,6 +14,7 @@ wiki: https://sapui5.hana.ondemand.com/explored.html#/sample/sap.m.sample.Upload
 
 In case the application does not work, delete tomcat instance and recreate it from scratch.
 
+<<<<<<< HEAD
 # 2018-05-17 from Ian
 
 * [Side by Side: SAPUI5 vs. React & Angular2](https://blogs.sap.com/2017/03/04/side-by-side-sapui5-vs.-react-angular2/)
@@ -24,3 +25,7 @@ In case the application does not work, delete tomcat instance and recreate it fr
 
 * [Wrap-Up 2017 & Favorite Frontend Framework 2018](https://medium.com/codingthesmartway-com-blog/wrap-up-2017-favorite-frontend-framework-2018-32f93d1282ac)
  
+=======
+# 2018-04-03
+
+* [class sap.ui.base.ManagedObject](https://sapui5.hana.ondemand.com/#/api/sap.ui.base.ManagedObject/constructor)
