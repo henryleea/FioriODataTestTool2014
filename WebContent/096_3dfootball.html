@@ -1,0 +1,75 @@
+<html>
+<body onload="onBoot()">
+    <div id="webglContainer" ></div>
+</body>
+<script src="3dfootball/three.min.js"></script>
+<script src="3dfootball/objLoader.js"></script>
+<script>
+function onBoot() {
+    drawBall();
+}
+
+function getContainer() {
+    return document.getElementById("webglContainer");
+}
+
+function drawBall() {
+    var scene = new THREE.Scene();
+    var container = getContainer();
+    var camera = new THREE.PerspectiveCamera(45, container.offsetWidth / container.offsetWidth, 0.1, 1000);
+
+    var mesh, requestId;
+
+    var webGLRenderer = new THREE.WebGLRenderer({ alpha: true });
+    webGLRenderer.setClearColor(0x000000, 0);
+    webGLRenderer.setSize(container.offsetWidth/2, container.offsetWidth/2);
+
+    camera.position.x = 0;
+    camera.position.y = 0;
+    camera.position.z = 7;
+    camera.lookAt(new THREE.Vector3(0, 0, 0));
+
+    var directionLight = new THREE.DirectionalLight(0xffffff);
+    directionLight.position.set(0, 0, 60);
+    directionLight.intensity = 1;
+    scene.add(directionLight);
+
+    container.appendChild(webGLRenderer.domElement);
+
+    var loader = new THREE.OBJLoader();
+    var texture = new THREE.TextureLoader().load("3dfootball/ball_pattern6.png");
+    var normalTexture = new THREE.TextureLoader().load("3dfootball/ball_normals.png");
+    var specularTexture = new THREE.TextureLoader().load("3dfootball/ball_specular.png");
+    var occlusionTexture = new THREE.TextureLoader().load("3dfootball/ball_occlusion.png");
+    loader.load('3dfootball/ball_s.obj', function(geometry) {
+        var material = new THREE.MeshPhongMaterial();
+        material.map = texture;
+        material.normalMap = normalTexture;
+        material.aoMap = occlusionTexture;
+        material.specularMap = specularTexture;
+
+        material.normalScale.set(-1, -1);
+
+        geometry.children[0].material = material;
+        mesh = geometry;
+        geometry.scale.set(2, 2, 2);
+
+        scene.add(geometry);
+    });
+
+    render();
+
+    function render() {
+
+        if (mesh) {
+            mesh.rotation.y += 0.006;
+            mesh.rotation.x += 0.006;
+        }
+        requestId = requestAnimationFrame(render);
+        webGLRenderer.render(scene, camera);
+    }
+}
+
+</script>
+
+</html>
