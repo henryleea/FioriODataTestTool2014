@@ -8,6 +8,10 @@ sap.ui.controller("scn_exercise.view.Master", {
 		this.nav.to("Detail", context);
 	},
 	
+	// Jerry added 2016-06-16: 15:41PM third try this evening!!!
+	onInit: function(){
+		debugger;
+	},
 	handleSearch : function (evt) {
 		
 		// create model filter

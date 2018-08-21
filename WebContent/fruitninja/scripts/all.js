@@ -263,9 +263,9 @@ define("fruitninja/scripts/game.js", function(exports){
 	        this.applyScore( scoreNumber );
 	    }else{
 	        boomSnd.play();
-	        this.pauseAllFruit();
+	        /*this.pauseAllFruit();
 	        background.wobble();
-	        light.start( fruit );
+	        light.start( fruit );*/
 	    }
 	};
 	
@@ -4744,7 +4744,7 @@ define("fruitninja/scripts/object/lose.js", function(exports){
 	    infx[0].attr( "src", infx[1].src.replace( "x.png", "xf.png" ) ).scale( 1e-5, 1e-5 );
 	    this.scaleImage( infx[0] );
 	    
-	    if( number == 3 )
+	    if( number == 999 )
 	        message.postMessage( "game.over" );
 	};
 	

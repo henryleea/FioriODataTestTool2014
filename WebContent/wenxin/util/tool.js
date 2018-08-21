@@ -17,6 +17,15 @@ wenxin.util.tool = {
 		alert("There is no debugger attached.\n\n" + text);
 		/*eslint-enable no-alert */
 	},
+	
+	injectFireEvent: function(){
+		var oldFn = EventProvider.prototype.fireEvent;
+
+		EventProvider.prototype.fireEvent = function(sEventId, mParameters, bAllowPreventDefault, bEnableEventBubbling) {
+
+		    oldFn.call(this, sEventId, mParameters, bAllowPreventDefault, bEnableEventBubbling);
+		};
+	},
 	methodHook:function(method) {
 		var that = this;
 
