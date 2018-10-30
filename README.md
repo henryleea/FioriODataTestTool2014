@@ -29,3 +29,7 @@ In case the application does not work, delete tomcat instance and recreate it fr
 # 2018-04-03
 
 * [class sap.ui.base.ManagedObject](https://sapui5.hana.ondemand.com/#/api/sap.ui.base.ManagedObject/constructor)
+
+# 2018-10-30
+
+node-odata: https://www.npmjs.com/package/node-odata
